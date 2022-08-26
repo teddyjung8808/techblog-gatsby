@@ -7,13 +7,14 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: "gatsby-plugin-typescript",
+      resolve: 'gatsby-plugin-typescript',
       options: {
         isTSX: true,
         allExtensions: true,
       },
     },
     // `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-emotion`,
     `gatsby-plugin-image`,
     // {
     //   resolve: `gatsby-source-filesystem`,
