@@ -8,8 +8,6 @@ type PostListProps = {
 }
 
 const PostList: FunctionComponent<PostListProps> = ({ posts }) => {
-  console.log('posts', posts)
-
   return (
     <PostListWrapper>
       {posts.map(({ node: { id, frontmatter } }: PostListItemType) => (
