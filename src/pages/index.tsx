@@ -48,8 +48,6 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
       ? 'All'
       : parsed.category
 
-  console.log(edges)
-
   const categoryList = useMemo(
     () =>
       edges.reduce(
@@ -104,6 +102,9 @@ export const getPostList = graphql`
       edges {
         node {
           id
+          fields {
+            slug
+          }
           frontmatter {
             title
             summary
