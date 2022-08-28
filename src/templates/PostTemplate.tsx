@@ -2,6 +2,8 @@ import React, { FunctionComponent } from 'react'
 import { graphql } from 'gatsby'
 import Template from '@Components/common/Template'
 import PostHead from '@Components/post/PostHead'
+import PostContent from '@Components/post/PostContent'
+import CommentWidget from '@Components/post/CommentWidget'
 import { PostPageItemType } from '@Types/PostItem.types'
 
 type PostTemplateProps = {
@@ -40,6 +42,8 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
         categories={categories}
         thumbnail={gatsbyImageData}
       />
+      <PostContent html={html} />
+      <CommentWidget />
     </Template>
   )
 }
