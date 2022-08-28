@@ -2,19 +2,11 @@ import React, { FunctionComponent, useMemo } from 'react'
 import { graphql } from 'gatsby'
 import { IGatsbyImageData } from 'gatsby-plugin-image'
 import queryString, { ParsedQuery } from 'query-string'
-import styled from '@emotion/styled'
-import GlobalStyle from '@Components/common/GlobalStyle'
+import Template from '@Components/common/Template'
 import Introduction from '@Components/main/Introduction'
 import CategoryList, { CategoryListProps } from '@Components/main/CategoryList'
 import PostList from '@Components/main/PostList'
-import Footer from '@Components/common/Footer'
 import { PostListItemType } from '@Types/PostItem.types'
-
-// const CATEGORY_LIST = {
-//   All: 5,
-//   Web: 3,
-//   Mobile: 2,
-// }
 
 type IndexPageProps = {
   location: {
@@ -74,26 +66,19 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
   )
 
   return (
-    <Container>
-      <GlobalStyle />
+    <Template>
       <Introduction profileImage={gatsbyImageData} />
       <CategoryList
         selectedCategory={selectedCategory}
         categoryList={categoryList}
       />
       <PostList selectedCategory={selectedCategory} posts={edges} />
-      <Footer />
-    </Container>
+    </Template>
   )
 }
 
 export default IndexPage
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-`
 export const getPostList = graphql`
   query getPostList {
     allMarkdownRemark(
